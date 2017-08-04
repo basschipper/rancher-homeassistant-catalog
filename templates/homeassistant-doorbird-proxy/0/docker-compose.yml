@@ -1,0 +1,11 @@
+version: '2'
+services:
+  hadoorbirdproxy:
+    image: basschipper/homeassistant-doorbird-proxy:0.1
+    ports:
+      - ${PROXY_PORT}:80
+    restart: always
+    environment:
+      HA_API_URL: ${HA_API_URL}
+      HA_DOORBELL_ENTITY: ${HA_DOORBELL_ENTITY}
+      HA_FRONTDOORMOTION_ENTITY: ${HA_FRONTDOORMOTION_ENTITY}

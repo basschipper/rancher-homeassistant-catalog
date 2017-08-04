@@ -1,0 +1,11 @@
+version: '2'
+services:
+  ozwcp:
+    image: openzwave/openzwave-control-panel:latest
+    volumes:
+      - /var/lib/docker/volumes/ha_config/options.xml:/home/ozwcp_user/options.xml
+    ports:
+      - ${OZWCP_PORT}:8008
+    devices:
+      - /dev/serial/by-id/${DEV_ZWAVE}:/zwaveusb:rwm
+    restart: always

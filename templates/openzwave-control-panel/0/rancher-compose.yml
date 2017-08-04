@@ -1,0 +1,20 @@
+version: '2'
+
+.catalog:
+  name: OpenZWave Control Panel
+  description: |
+    The OpenZWave Control Panel permits users to query, manage and monitor Z-Wave nodes and networks.
+  version: latest
+  questions:
+   - variable: 'OZWCP_PORT'
+     description: 'Panel Port'
+     label: 'Panel Port'
+     required: true
+     type: 'int'
+     default: 8008
+   - variable: 'DEV_ZWAVE'
+     description: 'ZWave device'
+     label: 'ZWave device'
+     required: true
+     type: 'string'
+     default: 'usb-0658_0200-if00'

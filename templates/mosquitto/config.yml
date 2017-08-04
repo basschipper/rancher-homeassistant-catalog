@@ -1,0 +1,5 @@
+name: Mosquitto
+description: |
+  Eclipse Mosquitto is an open source message broker which implements MQTT.
+version: 1.4.12
+category: Automation

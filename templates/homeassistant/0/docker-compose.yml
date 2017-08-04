@@ -1,0 +1,46 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7.19
+    volumes:
+      - /var/lib/docker/volumes/ha_mysql:/var/lib/mysql
+    {{- if (.Values.MYSQL_PORT)}}
+    ports:
+      - ${MYSQL_PORT}:3306
+    {{- end}}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  homeassistant:
+    depends_on:
+      - db
+    image: homeassistant/home-assistant:0.50.2
+    volumes:
+      - /var/lib/docker/volumes/ha_config:/config
+      - /var/lib/docker/volumes/ha_config/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
+    ports:
+      - ${HA_PORT}:8123
+    devices:
+      {{- if (.Values.DEV_ZWAVE)}}
+      - /dev/serial/by-id/${DEV_ZWAVE}:/zwaveusb:rwm
+      {{- end}}
+      {{- if (.Values.DEV_RFXCOM)}}
+      - /dev/serial/by-id/${DEV_RFXCOM}:/rfxtrxusb:rwm
+      {{- end}}
+      {{- if (.Values.DEV_SOUND_PLAYBACK)}}
+      - /dev/snd/${DEV_SOUND_PLAYBACK}:/dev/snd/${DEV_SOUND_PLAYBACK}:rwm
+      {{- end}}
+      {{- if (.Values.DEV_SOUND_CAPTURE)}}
+      - /dev/snd/${DEV_SOUND_CAPTURE}:/dev/snd/${DEV_SOUND_CAPTURE}:rwm
+      {{- end}}
+      {{- if (.Values.DEV_SOUND_CONTROL)}}
+      - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/${DEV_SOUND_CONTROL}:rwm
+      {{- end}}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}

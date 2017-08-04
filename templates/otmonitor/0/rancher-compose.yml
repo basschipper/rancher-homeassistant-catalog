@@ -1,0 +1,14 @@
+version: '2'
+
+.catalog:
+  name: OpenTherm Monitor
+  description: |
+    The Opentherm Monitor helps you configure and monitor your opentherm gateway (OTGW).
+  version: 4.2.4
+  questions:
+   - variable: 'WEB_PORT'
+     description: 'Leave empty for not exposing WebGUI'
+     label: 'Web Port'
+     required: false
+     type: 'int'
+     default: 8082

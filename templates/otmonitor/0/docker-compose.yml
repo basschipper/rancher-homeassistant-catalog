@@ -1,0 +1,11 @@
+version: '2'
+services:
+  otmonitor:
+    image: basschipper/docker-otmonitor:4.2.4
+    volumes:
+      - /var/lib/docker/volumes/otmonitor/otmonitor.conf:/app/otmonitor.conf
+    {{- if (.Values.WEB_PORT)}}
+    ports:
+      - ${WEB_PORT}:8080
+    {{- end}}
+    restart: always

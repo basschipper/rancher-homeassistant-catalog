@@ -1,0 +1,5 @@
+name: Home Assistant DoorBird Proxy
+description: |
+  Translates DoorBird API calls to Home Assistant.
+version: 0.1
+category: Automation

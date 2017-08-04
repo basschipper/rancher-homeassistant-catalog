@@ -1,0 +1,5 @@
+name: OpenZWave Control Panel
+description: |
+  The OpenZWave Control Panel permits users to query, manage and monitor Z-Wave nodes and networks.
+version: latest
+category: Automation

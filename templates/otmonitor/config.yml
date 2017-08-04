@@ -1,0 +1,5 @@
+name: OpenTherm Monitor
+description: |
+  The Opentherm Monitor helps you configure and monitor your opentherm gateway (OTGW).
+version: 4.2.4
+category: Automation

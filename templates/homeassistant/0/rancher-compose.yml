@@ -1,0 +1,72 @@
+version: '2'
+
+.catalog:
+  name: Home Assistant
+  description: |
+    Track and control all devices at home and automate control.
+  version: 0.50.2
+  questions:
+   - variable: 'HA_PORT'
+     description: 'Home Assistant Port'
+     label: 'Home Assistant Port'
+     required: true
+     type: 'int'
+     default: 8123
+   - variable: 'MYSQL_PORT'
+     description: 'MySQL Port'
+     label: 'Leave empty for not exposing MySQL'
+     required: false
+     type: 'int'
+     default: 3306
+   - variable: 'MYSQL_ROOT_PASSWORD'
+     description: 'MySQL Root Password'
+     label: 'MySQL Root Password'
+     required: true
+     type: 'password'
+   - variable: "MYSQL_DATABASE"
+     description: 'MySQL Database'
+     label: 'MySQL Database'
+     required: true
+     type: 'string'
+     default: 'homeassistant'
+   - variable: "MYSQL_USER"
+     description: 'MySQL User'
+     label: 'MySQL User'
+     required: true
+     type: 'string'
+     default: 'homeassistant'
+   - variable: "MYSQL_PASSWORD"
+     description: 'MySQL Password'
+     label: 'MySQL Password'
+     required: true
+     type: 'password'
+   - variable: 'DEV_ZWAVE'
+     description: 'Leave empty for no ZWave device'
+     label: 'ZWave device'
+     required: false
+     type: 'string'
+     default: 'usb-0658_0200-if00'
+   - variable: 'DEV_RFXCOM'
+     description: 'Leave empty for no RFXCOM device'
+     label: 'RFXCOM device'
+     required: false
+     type: 'string'
+     default: 'usb-RFXCOM_RFXtrx433_A1WP56WY-if00-port0'
+   - variable: 'DEV_SOUND_PLAYBACK'
+     description: 'Leave empty for no audio playback device'
+     label: 'Audio playback device'
+     required: false
+     type: 'string'
+     default: 'pcmC0D0p'
+   - variable: 'DEV_SOUND_CAPTURE'
+     description: 'Leave empty for no audio capture device'
+     label: 'Audio capture device'
+     required: false
+     type: 'string'
+     default: 'pcmC0D0c'
+   - variable: 'DEV_SOUND_CONTROL'
+     description: 'Leave empty for no audio control device'
+     label: 'Audio control device'
+     required: false
+     type: 'string'
+     default: 'controlC0'

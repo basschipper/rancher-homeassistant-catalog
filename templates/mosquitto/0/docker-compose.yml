@@ -1,0 +1,16 @@
+version: '2'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:1.4.12
+    volumes:
+      - /var/lib/docker/volumes/mosquitto/config:/mosquitto/config
+      - /var/lib/docker/volumes/mosquitto/data:/mosquitto/data
+      - /var/lib/docker/volumes/mosquitto/log:/mosquitto/log
+    ports:
+    {{- if (.Values.MQTT_PORT)}}
+      - ${MQTT_PORT}:1883
+    {{- end}}
+    {{- if (.Values.MQTT_SSL_PORT)}}
+      - ${MQTT_SSL_PORT}:8883
+    {{- end}}
+    restart: always

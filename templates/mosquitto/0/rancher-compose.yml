@@ -1,0 +1,20 @@
+version: '2'
+
+.catalog:
+  name: Mosquitto
+  description: |
+    Eclipse Mosquitto is an open source message broker which implements MQTT.
+  version: 1.4.12
+  questions:
+   - variable: 'MQTT_PORT'
+     description: 'Leave empty for not exposing plain MQTT'
+     label: 'MQTT Port'
+     required: false
+     type: 'int'
+     default: 1883
+   - variable: 'MQTT_SSL_PORT'
+     description: 'Leave empty for not exposing MQTT over SSL'
+     label: 'MQTT SSL Port'
+     required: false
+     type: 'int'
+     default: 8883

@@ -1,0 +1,13 @@
+version: '2'
+services:
+  appdaemon:
+    image: acockburn/appdaemon:latest
+    volumes:
+      - /var/lib/docker/volumes/ha_appdaemon:/conf
+    ports:
+      - ${PORT}:5050
+    restart: always
+    environment:
+      HA_URL: ${HA_URL}
+      HA_KEY: ${HA_KEY}
+      DASH_URL: ${DASH_URL}

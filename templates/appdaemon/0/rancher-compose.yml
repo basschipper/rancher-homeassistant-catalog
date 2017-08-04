@@ -1,0 +1,31 @@
+version: '2'
+
+.catalog:
+  name: Home Assistant AppDaemon
+  description: |
+    Python Apps for Home Assistant.
+  version: latest
+  questions:
+   - variable: "PORT"
+     description: 'Port'
+     label: 'Port'
+     required: true
+     type: 'int'
+     default: 5050
+   - variable: "DASH_URL"
+     description: 'Dash URL'
+     label: 'Dash URL'
+     required: true
+     type: 'string'
+     default: 'http://$HOSTNAME:5050'
+   - variable: "HA_URL"
+     description: 'Home Assistant URL'
+     label: 'Home Assistant URL'
+     required: true
+     type: 'string'
+     default: 'http://homeassistant.homeassistant:8123'
+   - variable: "HA_KEY"
+     description: 'Home Assistant API key'
+     label: 'Home Assistant API key'
+     required: false
+     type: 'string'

@@ -1,5 +1,5 @@
 name: Home Assistant
 description: |
   Track and control all devices at home and automate control.
-version: 0.50.2
+version: 0.51.2
 category: Automation

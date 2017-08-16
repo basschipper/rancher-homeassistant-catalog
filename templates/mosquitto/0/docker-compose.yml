@@ -7,10 +7,10 @@ services:
       - /var/lib/docker/volumes/mosquitto/data:/mosquitto/data
       - /var/lib/docker/volumes/mosquitto/log:/mosquitto/log
     ports:
-    {{- if (.Values.MQTT_PORT)}}
+    {{- if (.Values.MQTT_PORT) }}
       - ${MQTT_PORT}:1883
-    {{- end}}
-    {{- if (.Values.MQTT_SSL_PORT)}}
+    {{- end }}
+    {{- if (.Values.MQTT_SSL_PORT) }}
       - ${MQTT_SSL_PORT}:8883
-    {{- end}}
+    {{- end }}
     restart: always

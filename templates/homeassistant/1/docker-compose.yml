@@ -4,10 +4,10 @@ services:
     image: mysql:5.7.19
     volumes:
       - /var/lib/docker/volumes/ha_mysql:/var/lib/mysql
-    {{- if (.Values.MYSQL_PORT)}}
+    {{- if (.Values.MYSQL_PORT) }}
     ports:
       - ${MYSQL_PORT}:3306
-    {{- end}}
+    {{- end }}
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -23,25 +23,25 @@ services:
     ports:
       - ${HA_PORT}:8123
     devices:
-      {{- if (.Values.DEV_ZWAVE)}}
+      {{- if (.Values.DEV_ZWAVE) }}
       - /dev/serial/by-id/${DEV_ZWAVE}:/zwaveusb:rwm
-      {{- end}}
-      {{- if (.Values.DEV_RFXCOM)}}
+      {{- end }}
+      {{- if (.Values.DEV_RFXCOM) }}
       - /dev/serial/by-id/${DEV_RFXCOM}:/rfxtrxusb:rwm
-      {{- end}}
-      {{- if (.Values.DEV_SOUND_PLAYBACK)}}
+      {{- end }}
+      {{- if (.Values.DEV_SOUND_PLAYBACK) }}
       - /dev/snd/${DEV_SOUND_PLAYBACK}:/dev/snd/${DEV_SOUND_PLAYBACK}:rwm
-      {{- end}}
-      {{- if (.Values.DEV_SOUND_CAPTURE)}}
+      {{- end }}
+      {{- if (.Values.DEV_SOUND_CAPTURE) }}
       - /dev/snd/${DEV_SOUND_CAPTURE}:/dev/snd/${DEV_SOUND_CAPTURE}:rwm
-      {{- end}}
-      {{- if (.Values.DEV_SOUND_CONTROL)}}
+      {{- end }}
+      {{- if (.Values.DEV_SOUND_CONTROL) }}
       - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/${DEV_SOUND_CONTROL}:rwm
-      {{- end}}
-    {{- if (.Values.BLUETOOTH)}}
+      {{- end }}
+    {{- if eq .Values.BLUETOOTH "true" }}
     network_mode: host
     privileged: yes
-    {{- end}}
+    {{- end }}
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}

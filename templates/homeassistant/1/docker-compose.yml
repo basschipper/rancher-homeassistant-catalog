@@ -39,7 +39,7 @@ services:
       - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/${DEV_SOUND_CONTROL}:rwm
       {{- end}}
     {{- if (.Values.BLUETOOTH)}}
-    net: host
+    network_mode: host
     privileged: yes
     {{- end}}
     restart: always

@@ -20,7 +20,6 @@ services:
     image: homeassistant/home-assistant:0.51.2
     volumes:
       - /var/lib/docker/volumes/ha_config:/config
-      - /var/lib/docker/volumes/ha_config/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
     ports:
       - ${HA_PORT}:8123
     devices:
@@ -39,6 +38,10 @@ services:
       {{- if (.Values.DEV_SOUND_CONTROL)}}
       - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/${DEV_SOUND_CONTROL}:rwm
       {{- end}}
+    {{- if (.Values.BLUETOOTH)}}
+    net: host
+    privileged: yes
+    {{- end}}
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}

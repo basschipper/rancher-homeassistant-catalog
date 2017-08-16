@@ -40,6 +40,12 @@ version: '2'
      label: 'MySQL Password'
      required: true
      type: 'password'
+   - variable: 'BLUETOOTH'
+     description: 'Warning: Gives extended privileges to this container!'
+     label: 'Bluetooth'
+     required: true
+     type: 'boolean'
+     default: true
    - variable: 'DEV_ZWAVE'
      description: 'Leave empty for no ZWave device'
      label: 'ZWave device'

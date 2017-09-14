@@ -17,7 +17,7 @@ services:
   homeassistant:
     depends_on:
       - db
-    image: homeassistant/home-assistant:0.52.1
+    image: homeassistant/home-assistant:0.53.1
     volumes:
       - /var/lib/docker/volumes/ha_config:/config
     ports:
@@ -38,6 +38,10 @@ services:
       {{- if (.Values.DEV_SOUND_CONTROL) }}
       - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/${DEV_SOUND_CONTROL}:rwm
       {{- end }}
+#    {{- if eq .Values.BLUETOOTH "true" }}
+#    network_mode: host
+#    privileged: yes
+#    {{- end }}
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}

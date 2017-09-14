@@ -4,7 +4,7 @@ version: '2'
   name: Home Assistant
   description: |
     Track and control all devices at home and automate control.
-  version: 0.51.2
+  version: 0.53.1
   questions:
    - variable: 'HA_PORT'
      description: 'Home Assistant Port'
@@ -40,6 +40,12 @@ version: '2'
      label: 'MySQL Password'
      required: true
      type: 'password'
+#   - variable: 'BLUETOOTH'
+#     description: 'Warning: Gives extended privileges to this container!'
+#     label: 'Bluetooth'
+#     required: true
+#     type: 'boolean'
+#     default: true
    - variable: 'DEV_ZWAVE'
      description: 'Device ID (/dev/serial/by-id/), leave empty for no ZWave device'
      label: 'ZWave device'

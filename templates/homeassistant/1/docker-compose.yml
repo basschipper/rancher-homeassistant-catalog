@@ -30,13 +30,13 @@ services:
       - /dev/serial/by-id/${DEV_RFXCOM}:/rfxtrxusb:rwm
       {{- end }}
       {{- if (.Values.DEV_SOUND_PLAYBACK) }}
-      - /dev/snd/${DEV_SOUND_PLAYBACK}:/dev/snd/${DEV_SOUND_PLAYBACK}:rwm
+      - /dev/snd/${DEV_SOUND_PLAYBACK}:/dev/snd/pcmC0D0p:rwm
       {{- end }}
       {{- if (.Values.DEV_SOUND_CAPTURE) }}
-      - /dev/snd/${DEV_SOUND_CAPTURE}:/dev/snd/${DEV_SOUND_CAPTURE}:rwm
+      - /dev/snd/${DEV_SOUND_CAPTURE}:/dev/snd/pcmC0D0c:rwm
       {{- end }}
       {{- if (.Values.DEV_SOUND_CONTROL) }}
-      - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/${DEV_SOUND_CONTROL}:rwm
+      - /dev/snd/${DEV_SOUND_CONTROL}:/dev/snd/controlC0:rwm
       {{- end }}
     restart: always
     environment:

@@ -52,21 +52,3 @@ version: '2'
      required: false
      type: 'string'
      default: 'usb-RFXCOM_RFXtrx433_A1WP56WY-if00-port0'
-   - variable: 'DEV_SOUND_PLAYBACK'
-     description: 'ALSA device (/dev/snd/), leave empty for no audio playback device'
-     label: 'Audio playback device'
-     required: false
-     type: 'string'
-     default: 'pcmC0D0p'
-   - variable: 'DEV_SOUND_CAPTURE'
-     description: 'ALSA device (/dev/snd/), leave empty for no audio capture device'
-     label: 'Audio capture device'
-     required: false
-     type: 'string'
-     default: 'pcmC0D0c'
-   - variable: 'DEV_SOUND_CONTROL'
-     description: 'ALSA device (/dev/snd/), leave empty for no audio control device'
-     label: 'Audio control device'
-     required: false
-     type: 'string'
-     default: 'controlC0'

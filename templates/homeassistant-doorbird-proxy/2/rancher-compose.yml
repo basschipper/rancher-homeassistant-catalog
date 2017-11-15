@@ -4,7 +4,7 @@ version: '2'
   name: Home Assistant DoorBird Proxy
   description: |
     Translates DoorBird API calls to Home Assistant.
-  version: 0.1
+  version: 0.3
   questions:
    - variable: 'PROXY_PORT'
      description: 'Proxy Port'
@@ -18,6 +18,11 @@ version: '2'
      required: true
      type: 'string'
      default: 'http://homeassistant.homeassistant:8123/api'
+   - variable: 'HA_API_PASSWORD'
+     description: 'Home Assistant API Password'
+     label: 'Home Assistant API Password'
+     required: false
+     type: 'password'
    - variable: 'HA_DOORBELL_ENTITY'
      description: 'Home Assistant Doorbell Entity'
      label: 'Home Assistant Doorbell Entity'
@@ -30,3 +35,9 @@ version: '2'
      required: false
      type: 'string'
      default: 'binary_sensor.frontdoor_motion'
+   - variable: 'HA_FRONTDOOROPEN_ENTITY'
+     description: 'Home Assistant Front Door Open Entity'
+     label: 'Home Assistant Front Door Open Entity'
+     required: false
+     type: 'string'
+     default: 'binary_sensor.frontdoor_open'

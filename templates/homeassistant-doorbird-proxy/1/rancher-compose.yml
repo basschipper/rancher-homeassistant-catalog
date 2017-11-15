@@ -27,12 +27,12 @@ version: '2'
    - variable: 'HA_FRONTDOORMOTION_ENTITY'
      description: 'Home Assistant Front Door Motion Entity'
      label: 'Home Assistant Front Door Motion Entity'
-     required: true
+     required: false
      type: 'string'
      default: 'binary_sensor.frontdoor_motion'
    - variable: 'HA_FRONTDOOROPEN_ENTITY'
      description: 'Home Assistant Front Door Open Entity'
      label: 'Home Assistant Front Door Open Entity'
-     required: true
+     required: false
      type: 'string'
      default: 'binary_sensor.frontdoor_open'

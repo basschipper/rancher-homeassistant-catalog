@@ -17,7 +17,7 @@ services:
   homeassistant:
     depends_on:
       - db
-    image: homeassistant/home-assistant:0.64.1
+    image: homeassistant/home-assistant:0.64.2
     volumes:
       - /var/lib/docker/volumes/ha_config:/config
     ports:

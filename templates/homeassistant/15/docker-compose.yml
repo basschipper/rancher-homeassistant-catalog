@@ -1,0 +1,39 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7.21
+    volumes:
+      - /var/lib/docker/volumes/ha_mysql:/var/lib/mysql
+    {{- if (.Values.MYSQL_PORT) }}
+    ports:
+      - ${MYSQL_PORT}:3306
+    {{- end }}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  homeassistant:
+    depends_on:
+      - db
+    image: homeassistant/home-assistant:0.66.1
+    volumes:
+      - /var/lib/docker/volumes/ha_config:/config
+    ports:
+      - ${HA_PORT}:8123
+    {{- if or (.Values.DEV_ZWAVE) (.Values.DEV_RFXCOM) }}
+    devices:
+      {{- if (.Values.DEV_ZWAVE) }}
+      - /dev/serial/by-id/${DEV_ZWAVE}:/zwaveusb:rwm
+      {{- end }}
+      {{- if (.Values.DEV_RFXCOM) }}
+      - /dev/serial/by-id/${DEV_RFXCOM}:/rfxtrxusb:rwm
+      {{- end }}
+    {{- end }}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ}

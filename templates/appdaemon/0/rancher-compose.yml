@@ -29,3 +29,9 @@ version: '2'
      label: 'Home Assistant API key'
      required: false
      type: 'string'
+   - variable: 'TZ'
+     description: 'Timezone (eg. Europe/Amsterdam)'
+     label: 'Timezone'
+     required: true
+     type: 'string'
+     default: 'Europe/Amsterdam'

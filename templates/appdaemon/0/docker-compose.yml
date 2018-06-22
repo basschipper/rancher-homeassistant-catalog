@@ -11,3 +11,4 @@ services:
       HA_URL: ${HA_URL}
       HA_KEY: ${HA_KEY}
       DASH_URL: ${DASH_URL}
+      TZ: ${TZ}

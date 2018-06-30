@@ -1,0 +1,16 @@
+version: '2'
+services:
+  caddy:
+    image: abiosoft/caddy:0.11.0
+    volumes:
+      - /var/lib/docker/volumes/cs_config/Caddyfile:/etc/Caddyfile
+      - /var/lib/docker/volumes/cs_srv:/srv
+      - /var/lib/docker/volumes/cs_certs:/root/.caddy
+    ports:
+    {{- if (.Values.CADDY_HTTP_PORT) }}
+      - ${CADDY_HTTP_PORT}:80
+    {{- end }}
+    {{- if (.Values.CADDY_HTTPS_PORT) }}
+      - ${CADDY_HTTPS_PORT}:443
+    {{- end }}
+    restart: always

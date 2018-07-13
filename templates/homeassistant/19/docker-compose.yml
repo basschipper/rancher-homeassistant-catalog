@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: mysql:8.0.11
+    image: mysql:5.7.22
     volumes:
       - /var/lib/docker/volumes/ha_mysql:/var/lib/mysql
     {{- if (.Values.MYSQL_PORT) }}

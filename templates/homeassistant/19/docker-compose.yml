@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: mysql:5.7.22
+    image: mysql:8.0.11
     volumes:
       - /var/lib/docker/volumes/ha_mysql:/var/lib/mysql
     {{- if (.Values.MYSQL_PORT) }}
@@ -14,6 +14,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ}
   homeassistant:
     depends_on:
       - db

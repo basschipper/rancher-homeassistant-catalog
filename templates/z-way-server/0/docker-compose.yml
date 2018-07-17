@@ -1,0 +1,15 @@
+version: '2'
+services:
+  zway:
+    image: ruimarinho/z-way:latest
+    volumes:
+      - /var/lib/docker/volumes/z-way-server:/opt/z-way-server
+    {{- if (.Values.WEB_PORT) }}
+    ports:
+      - ${WEB_PORT}:8083
+    {{- end }}
+    {{- if (.Values.UZB_PORT) }}
+    devices:
+      - /dev/${UZB_PORT}:/dev/ttyAMA0
+    {{- end }}
+    restart: always

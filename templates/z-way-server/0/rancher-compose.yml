@@ -1,0 +1,20 @@
+version: '2'
+
+.catalog:
+  name: Z-Way server
+  description: |
+    Complete Smart Home Controller software for various platforms.
+  version: 2.3.6
+  questions:
+   - variable: 'UZB_PORT'
+     description: 'USB port where the UZB controller is located'
+     label: 'UZB Port'
+     required: true
+     type: 'string'
+     default: 'ttyACM0'
+   - variable: 'WEB_PORT'
+     description: 'Leave empty for not exposing WebGUI'
+     label: 'Web Port'
+     required: false
+     type: 'int'
+     default: 8083

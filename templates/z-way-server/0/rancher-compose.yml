@@ -18,3 +18,9 @@ version: '2'
      required: false
      type: 'int'
      default: 8083
+   - variable: 'TZ'
+     description: 'Timezone (eg. Europe/Amsterdam)'
+     label: 'Timezone'
+     required: true
+     type: 'string'
+     default: 'Europe/Amsterdam'

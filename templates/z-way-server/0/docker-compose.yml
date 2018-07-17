@@ -12,4 +12,6 @@ services:
     devices:
       - /dev/${UZB_PORT}:/dev/ttyAMA0
     {{- end }}
+    environment:
+      TZ: ${TZ}
     restart: always

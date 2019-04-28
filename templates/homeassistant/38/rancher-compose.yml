@@ -4,7 +4,7 @@ version: '2'
   name: Home Assistant
   description: |
     Track and control all devices at home and automate control.
-  version: 0.91.4
+  version: 0.92.1
   questions:
    - variable: 'HA_PORT'
      description: 'Home Assistant Port'

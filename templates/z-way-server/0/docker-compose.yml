@@ -10,7 +10,7 @@ services:
     {{- end }}
     {{- if (.Values.UZB_PORT) }}
     devices:
-      - /dev/${UZB_PORT}:/dev/ttyAMA0
+      - ${UZB_PORT}:/dev/ttyAMA0
     {{- end }}
     environment:
       TZ: ${TZ}

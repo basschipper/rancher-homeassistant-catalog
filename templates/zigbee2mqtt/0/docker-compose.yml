@@ -6,7 +6,7 @@ services:
       - /var/lib/docker/volumes/zigbee2mqtt:/app/data
     {{- if (.Values.USB_PORT) }}
     devices:
-      - /dev/${USB_PORT}:/dev/ttyACM0
+      - ${USB_PORT}:/dev/ttyACM0
     {{- end }}
     environment:
       TZ: ${TZ}

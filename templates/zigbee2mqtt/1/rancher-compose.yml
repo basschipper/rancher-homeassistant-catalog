@@ -1,0 +1,20 @@
+version: '2'
+
+.catalog:
+  name: Zigbee2mqtt
+  description: |
+    Allows you to use your Zigbee devices without the vendors bridge or gateway.
+  version: 1.4.0
+  questions:
+   - variable: 'USB_PORT'
+     description: 'USB port where the Zigbee sniffer is located'
+     label: 'USB Port'
+     required: true
+     type: 'string'
+     default: '/dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0014B93C9E-if00'
+   - variable: 'TZ'
+     description: 'Timezone (eg. Europe/Amsterdam)'
+     label: 'Timezone'
+     required: true
+     type: 'string'
+     default: 'Europe/Amsterdam'

@@ -1,7 +1,7 @@
 version: '2'
 services:
   zway:
-    image: ruimarinho/z-way:2.3.6
+    image: basschipper/z-way:2.3.8
     volumes:
       - /var/lib/docker/volumes/z-way-server:/opt/z-way-server
     {{- if (.Values.WEB_PORT) }}

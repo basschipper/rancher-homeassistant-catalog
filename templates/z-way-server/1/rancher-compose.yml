@@ -4,7 +4,7 @@ version: '2'
   name: Z-Way server
   description: |
     Complete Smart Home Controller software for various platforms.
-  version: 2.3.6
+  version: 2.3.8
   questions:
    - variable: 'UZB_PORT'
      description: 'USB port where the UZB controller is located'

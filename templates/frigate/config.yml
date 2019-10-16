@@ -1,0 +1,5 @@
+name: Frigate
+description: |
+  Realtime Object Detection for RTSP Cameras.
+version: latest
+category: Automation

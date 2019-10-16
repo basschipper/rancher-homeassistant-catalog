@@ -1,0 +1,13 @@
+version: '2'
+services:
+  frigate:
+    image: blakeblackshear/frigate:latest
+    privileged: true
+    volumes:
+      - /var/lib/docker/volumes/frigate:/config:ro
+      - /dev/bus/usb:/dev/bus/usb
+    ports:
+      - ${PORT}:5000
+    restart: always
+    environment:
+      TZ: ${TZ}

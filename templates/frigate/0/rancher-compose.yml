@@ -1,0 +1,20 @@
+version: '2'
+
+.catalog:
+  name: Frigate
+  description: |
+    Realtime Object Detection for RTSP Cameras.
+  version: latest
+  questions:
+   - variable: "PORT"
+     description: 'Port'
+     label: 'Port'
+     required: true
+     type: 'int'
+     default: 5000
+   - variable: 'TZ'
+     description: 'Timezone (eg. Europe/Amsterdam)'
+     label: 'Timezone'
+     required: true
+     type: 'string'
+     default: 'Europe/Amsterdam'

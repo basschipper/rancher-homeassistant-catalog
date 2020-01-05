@@ -9,3 +9,5 @@ services:
       - ${WEB_PORT}:8080
     {{- end }}
     restart: always
+    environment:
+      TZ: ${TZ}

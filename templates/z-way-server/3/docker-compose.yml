@@ -1,0 +1,17 @@
+version: '2'
+services:
+  zway:
+    image: basschipper/z-way:3.0.6
+    volumes:
+      - /var/lib/docker/volumes/z-way-server:/opt/z-way-server
+    {{- if (.Values.WEB_PORT) }}
+    ports:
+      - ${WEB_PORT}:8083
+    {{- end }}
+    {{- if (.Values.UZB_PORT) }}
+    devices:
+      - ${UZB_PORT}:/dev/ttyAMA0
+    {{- end }}
+    environment:
+      TZ: ${TZ}
+    restart: always

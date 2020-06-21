@@ -1,8 +1,9 @@
 version: '2'
 services:
   frigate:
-    image: blakeblackshear/frigate:latest
+    image: blakeblackshear/frigate:stable
     privileged: true
+    shm_size: '1g'
     volumes:
       - /var/lib/docker/volumes/frigate:/config:ro
       - /dev/bus/usb:/dev/bus/usb

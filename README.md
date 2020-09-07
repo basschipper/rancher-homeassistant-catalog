@@ -1,6 +1,6 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S116FB5)
 
-# Rancher Home Assistant Catalog
+# Rancher v1.6 Home Assistant Catalog
 
 ## Introduction
 This Rancher catalog provides Home Assistant templates that make it easy to deploy Home Assistant and Add-ons on Docker.
@@ -40,7 +40,7 @@ Happy ranching!
 ## Remarks
 
 #### Home Assistant
-If you are using a Aeon Labs Aeotec Z-Wave USB stick under RancherOS you probably need to load the cdc-acm module. 
+If you are using a Aeon Labs Aeotec Z-Wave USB stick under RancherOS you probably need to load the cdc-acm module.
 This can be done by enabling kernel-extras:
 
 ```bash
@@ -60,5 +60,5 @@ More info on configuring the OpenTherm Monitor can be found here: [OTMONITOR.md]
 - [DoorBird Proxy](https://github.com/basschipper/homeassistant-doorbird-proxy)
 - [OpenZWave Control Panel](https://github.com/OpenZWave/open-zwave-control-panel)
 - [DoorBird](http://www.doorbird.com/)
-- [Mosquitto](https://mosquitto.org/) 
+- [Mosquitto](https://mosquitto.org/)
 - [OpenTherm Monitor](http://otgw.tclcode.com/otmonitor.html)
